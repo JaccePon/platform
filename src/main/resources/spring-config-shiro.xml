@@ -6,7 +6,7 @@
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
-       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> 
 
     <!-- 缓存管理器 -->
     <bean id="cacheManager" class="jp.platform.system.common.cache.SpringCacheManagerWrapper">
@@ -117,7 +117,7 @@
                 /login = authc
                 /logout = logout
                 /authenticated = authc
-                /** = user,sysUser
+                /test = user,sysUser
             </value>
         </property>
     </bean>
