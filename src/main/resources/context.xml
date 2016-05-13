@@ -15,12 +15,17 @@
                            http://www.springframework.org/schema/aop 
 						   http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 						   http://www.springframework.org/schema/tx 
-						   http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">	
+						   http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 				   
-    <context:component-scan base-package="jp.platform"/>
     <context:property-placeholder location="classpath:resources.properties"/>
-    <!-- 包扫描dao,service 
-	<context:component-scan base-package="jp.platform.home.dao,jp.platform.home.service"/>-->
+ 	
+ 	<!-- 扫描注解Bean -->
+    <context:component-scan base-package="jp.platform">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+ 	
+ 	<!-- 开启AOP监听 只对当前配置文件有效 -->
+    <aop:aspectj-autoproxy expose-proxy="true"/>
  
    <mvc:annotation-driven />
    
@@ -145,12 +150,10 @@
 		<aop:advisor pointcut-ref="pc" advice-ref="txAdvice" />
 	</aop:config>
 	
+    <bean class="jp.platform.system.util.SpringUtils"/>
 	
 	<import resource="classpath:spring-config-cache.xml"/>
     <import resource="classpath:spring-config-shiro.xml"/>
     
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-        <property name="securityManager" ref="securityManager"/>
-    </bean>
 </beans>
 

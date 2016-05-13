@@ -12,7 +12,7 @@
     <bean id="cacheManager" class="jp.platform.system.common.cache.SpringCacheManagerWrapper">
         <property name="cacheManager" ref="springCacheManager"/>
     </bean>
-
+ 
     <!-- 凭证匹配器 -->
     <bean id="credentialsMatcher" class="jp.platform.system.common.cache.RetryLimitHashedCredentialsMatcher">
         <constructor-arg ref="cacheManager"/>
@@ -109,7 +109,7 @@
         <property name="filters">
             <util:map>
                 <entry key="authc" value-ref="formAuthenticationFilter"/>
-                <entry key="sysUser" value-ref="sysUserFilter"/>
+                <entry key="sysUser" value-ref="sysUserFilter"/> 
             </util:map>
         </property>
         <property name="filterChainDefinitions">
@@ -117,7 +117,7 @@
                 /login = authc
                 /logout = logout
                 /authenticated = authc
-                /test = user,sysUser
+                /test =sysUser
             </value>
         </property>
     </bean>
