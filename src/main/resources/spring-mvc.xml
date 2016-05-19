@@ -23,7 +23,7 @@
 
 
     <mvc:annotation-driven>
-        <mvc:argument-resolvers>
+        <mvc:argument-resolvers> 
             <bean class="jp.platform.system.common.resolver.CurrentUserMethodArgumentResolver"/>
         </mvc:argument-resolvers>
     </mvc:annotation-driven>

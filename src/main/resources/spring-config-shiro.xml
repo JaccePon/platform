@@ -108,7 +108,7 @@
         <property name="loginUrl" value="/login"/>
         <property name="filters">
             <util:map>
-                <entry key="authc" value-ref="formAuthenticationFilter"/>
+            	<entry key="authc" value-ref="formAuthenticationFilter"/>
                 <entry key="sysUser" value-ref="sysUserFilter"/> 
             </util:map>
         </property>
@@ -117,7 +117,7 @@
                 /login = authc
                 /logout = logout
                 /authenticated = authc
-                /test =sysUser
+                /** = user,sysUser
             </value>
         </property>
     </bean>
