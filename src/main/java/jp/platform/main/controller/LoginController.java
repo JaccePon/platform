@@ -51,7 +51,7 @@ public class LoginController {
             error = "其他错误：" + exceptionClassName;
         }
         model.addAttribute("error", error);
-    	return "/index.html";
+    	return "/login.html";
     }
     
     @RequestMapping("/")
